@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "nodemon",
-    "start:debug": "nodemon --inspect=9229 -e ts,tsx --exec node -r ts-node/register ./src/app.ts"
+    "start:debug": "nodemon --inspect=9229 -e ts,tsx --exec node -r ts-node/register -r tsconfig-paths/register ./src/app.ts"
   },
   "nodemonConfig": {
     "watch": [
@@ -11,13 +11,14 @@
     "ignore": [
       "node_modules"
     ],
-    "exec": "ts-node ./src/app.ts"
+    "exec": "ts-node -r tsconfig-paths/register ./src/app.ts"
   },
   "dependencies": {
     "dotenv": "^17.2.1",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
-    "mysql2": "^3.14.3"
+    "mysql2": "^3.14.3",
+    "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@types/ejs": "^3.1.5",
