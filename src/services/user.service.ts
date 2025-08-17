@@ -14,6 +14,24 @@ const handleCreateUser = async (
     },
   });
 };
+const handleUpdateUser = async (
+  id: string,
+  name: string,
+  email: string,
+  address: string
+) => {
+  const updatedUser = await prisma.user.update({
+    where: { id: +id },
+    data: {
+      name: name,
+      email: email,
+      address: address,
+    },
+  });
+
+  return updatedUser;
+};
+
 const getAllUsers = async () => {
   // use prisma
   const users = await prisma.user.findMany();
@@ -31,4 +49,4 @@ const getAllUsers = async () => {
   // }
 };
 
-export { handleCreateUser, getAllUsers };
+export { handleCreateUser, getAllUsers, handleUpdateUser };
