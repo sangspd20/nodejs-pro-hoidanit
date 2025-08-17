@@ -15,16 +15,20 @@ const handleCreateUser = async (
   });
 };
 const getAllUsers = async () => {
-  const connection = await getConnection();
+  // use prisma
+  const users = await prisma.user.findMany();
+  return users;
+  // use sql query
+  //const connection = await getConnection();
 
-  try {
-    const [results, fields] = await connection.query('SELECT * FROM `user`');
+  // try {
+  //   const [results, fields] = await connection.query('SELECT * FROM `user`');
 
-    return results;
-  } catch (err) {
-    console.log(err);
-    return [];
-  }
+  //   return results;
+  // } catch (err) {
+  //   console.log(err);
+  //   return [];
+  // }
 };
 
 export { handleCreateUser, getAllUsers };

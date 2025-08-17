@@ -6,11 +6,11 @@ const getHomePage = async (req: Request, res: Response) => {
   // get users
   const users = await getAllUsers();
 
-  //res.status(200).json(users);
+  res.status(200).json(users);
 
-  return res.render('home', {
-    name: users,
-  });
+  // return res.render('home', {
+  //   name: users,
+  // });
 };
 
 const getCreateUserPage = (req: Request, res: Response) => {
